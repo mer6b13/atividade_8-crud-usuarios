@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Usuários</title>
+</head>
+<body>
+
+    <h1>Cadastro de Usuários</h1>
+
+    <h2>Cadastrar novo usuário</h2>
+
+    <form action="/cadastrar" method="POST">
+
+        <label>Nome:</label>
+        <input type="text" name="nome" required>
+
+        <br><br>
+
+        <label>Email:</label>
+        <input type="email" name="email" required>
+
+        <br><br>
+
+        <label>Telefone:</label>
+        <input type="text" name="telefone">
+
+        <br><br>
+
+        <button type="submit">Cadastrar</button>
+
+    </form>
+
+    <h2>Usuários cadastrados</h2>
+
+    {% for usuario in usuarios %}
+
+        <p>
+            <strong>ID:</strong> {{ usuario.id }} <br>
+            <strong>Nome:</strong> {{ usuario.nome }} <br>
+            <strong>Email:</strong> {{ usuario.email }} <br>
+            <strong>Telefone:</strong> {{ usuario.telefone }}
+        </p>
+
+        <a href="/editar/{{ usuario.id }}">Editar</a>
+
+        <a href="/excluir/{{ usuario.id }}"
+           onclick="return confirm('Deseja realmente excluir este usuário?')">
+            Excluir
+        </a>
+
+        <hr>
+
+    {% endfor %}
+
+</body>
+</html>

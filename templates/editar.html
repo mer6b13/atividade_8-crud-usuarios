@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Usuário</title>
+</head>
+<body>
+
+    <h1>Editar Usuário</h1>
+
+    <form action="/editar/{{ usuario.id }}" method="POST">
+
+        <label>Nome:</label>
+        <input type="text" name="nome"
+               value="{{ usuario.nome }}" required>
+
+        <br><br>
+
+        <label>Email:</label>
+        <input type="email" name="email"
+               value="{{ usuario.email }}" required>
+
+        <br><br>
+
+        <label>Telefone:</label>
+        <input type="text" name="telefone"
+               value="{{ usuario.telefone or '' }}">
+
+        <br><br>
+
+        <button type="submit">Salvar Alterações</button>
+
+    </form>
+
+    <br>
+
+    <a href="/">Voltar</a>
+
+</body>
+</html>
